@@ -36,7 +36,8 @@ for y in range(Y0, Y1 + 1):
         h = p.text
         title = txt(re.search(r"<title>(.*?)</title>", h, re.S).group(1)).removesuffix(" - Temporary Temples")
         main = h[h.find('id="logo"'):]
-        imgs = re.findall(r'<img[^>]+src="(%s/wp-content/uploads/[^"]+)"[^>]*?(?:alt="([^"]*)")?' % B, main)
+        imgs = [(m.group(1), (re.search(r'alt="([^"]*)"', m.group(0)) or [0, ""])[1]) for m in
+                re.finditer(r'<img[^>]+src="(%s/wp-content/uploads/[^"]+)"[^>]*>' % B, main)]
         body = re.search(r"Detail.{0,10}Location:(.*?)(?:Crop Circle|Share|Related|$)", txt(main))
         maps = re.search(r'href="(https://(?:www\.)?(?:google\.[^/]+/maps|goo\.gl|maps\.app)[^"]*)"', h)
         for src, alt in dict.fromkeys(imgs):
