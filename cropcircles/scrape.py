@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Download crop-circle images from Wikimedia Commons (with license metadata).
 Usage: scrape.py [out_dir] [max_images]"""
-import json, sys, time, pathlib, requests
+import json, re, hashlib, datetime, sys, time, pathlib, requests
 
 OUT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "cropcircles/images")
 MAX = int(sys.argv[2]) if len(sys.argv) > 2 else 200
@@ -19,7 +19,7 @@ def get(url, **kw):
 
 def files(cat):
     p = dict(action="query", format="json", generator="categorymembers", gcmtitle=cat,
-             gcmtype="file", gcmlimit=50, prop="imageinfo", iiprop="url|extmetadata|mime",
+             gcmtype="file", gcmlimit=50, prop="imageinfo", iiprop="url|extmetadata|mime|size",
              iiurlwidth=1024)
     while True:
         d = get(API, params=p).json()
@@ -37,9 +37,13 @@ for page in files("Category:Crop_circles"):
     path = OUT / name
     if not path.exists():
         path.write_bytes(get(ii.get("thumburl") or ii["url"]).content); time.sleep(1)
-    meta.append(dict(file=name, title=page["title"], source=ii["descriptionurl"] if "descriptionurl" in ii else ii["url"],
-                     license=m.get("LicenseShortName", {}).get("value"),
-                     artist=m.get("Artist", {}).get("value")))
+    v = lambda k: re.sub(r"<[^>]+>", "", m.get(k, {}).get("value") or "").strip() or None
+    meta.append(dict(file=name, title=page["title"], page_url=ii.get("descriptionurl"), original_url=ii["url"],
+                     width=ii.get("width"), height=ii.get("height"), sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+                     license=v("LicenseShortName"), license_url=v("LicenseUrl"), artist=v("Artist"), credit=v("Credit"),
+                     attribution_required=v("AttributionRequired"), date=v("DateTimeOriginal"),
+                     description=v("ImageDescription"), lat=v("GPSLatitude"), lon=v("GPSLongitude"),
+                     source="Wikimedia Commons", retrieved=datetime.date.today().isoformat()))
     n += 1; print(n, name, flush=True)
     if n >= MAX: break
 (OUT / "metadata.json").write_text(json.dumps(meta, indent=1))
