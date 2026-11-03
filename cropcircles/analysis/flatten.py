@@ -110,13 +110,18 @@ def flatten(img, out=1000):
     if best is None or best[2] < .9: best, method = core(C1, None), "affine-only"
     if best is None: return None, "ring 1 not an ellipse"
     T, ratio, rnd = best; S = np.array([[out / 2.3, 0, out / 2], [0, out / 2.3, out / 2], [0, 0, 1]]); Hf = S @ T @ N
-    return dict(img=cv2.warpPerspective(img, Hf, (out, out)), H=Hf, method=method, ring2_over_ring1=ratio, ring2_roundness=rnd), method
+    w1, h1 = es[0][1]; tilt = float(np.degrees(np.arccos(min(w1, h1) / max(w1, h1))))   # tilt from the outer ring's axis ratio
+    usable = method == "conic-pencil" or tilt < 10                                         # affine-only error < ~1% only below ~10 deg (synthetic gate)
+    return dict(img=cv2.warpPerspective(img, Hf, (out, out)), H=Hf, method=method, tilt_deg=tilt, usable_for_ratios=bool(usable), ring2_over_ring1=ratio, ring2_roundness=rnd), method
 
 if __name__ == "__main__":
-    import sys; sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
+    import sys, json, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).parent))
     from common import load, ROOT
-    for r in load("tune", ("aerial",)):
-        if not r["tag_overhead"]: continue
+    split = sys.argv[1] if len(sys.argv) > 1 else "tune"; od = pathlib.Path("/tmp/claude-0/flat"); od.mkdir(exist_ok=True); rep = []
+    for r in load(split, ("aerial",), overhead=(None if len(sys.argv) > 2 and sys.argv[2] == "all" else True)):
         im = cv2.imread(str(ROOT / r["file"])); o, why = flatten(im)
-        print(r["file"].split("/")[-1][:45], why, {k: round(v, 3) for k, v in o.items() if k.startswith("ring") and v} if o else "")
-        if o: cv2.imwrite(f"/tmp/claude-0/flat_{r['file'].split('/')[-1]}", np.hstack([cv2.resize(im, (o['img'].shape[1] * im.shape[1] // im.shape[0], o['img'].shape[0])), o["img"]]))
+        row = dict(file=r["file"], formation=r["formation"], status=why if not o else o["method"])
+        if o:
+            row.update({k: o[k] for k in ("tilt_deg", "usable_for_ratios", "ring2_over_ring1", "ring2_roundness")}); cv2.imwrite(str(od / pathlib.Path(r["file"]).name), o["img"])
+        rep.append(row); print(row, flush=True)
+    (pathlib.Path(__file__).parent / f"flatten_report_{split}.json").write_text(json.dumps(rep, indent=1))

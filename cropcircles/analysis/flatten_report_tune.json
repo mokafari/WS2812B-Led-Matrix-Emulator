@@ -1,0 +1,254 @@
+[
+ {
+  "file": "2015/DSC3982-Etchilhampton-04-08-15-CL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 56.03003345934976,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3404-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-VLOW2-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "ring 1 not an ellipse"
+ },
+ {
+  "file": "2014/hod_-hill_-dorset_UK_7.jpg",
+  "formation": "https://temporarytemples.co.uk/project/hod-hill-dorset",
+  "status": "conic-pencil",
+  "tilt_deg": 16.658923882822258,
+  "usable_for_ratios": true,
+  "ring2_over_ring1": 0.5367977080585419,
+  "ring2_roundness": 0.9691540007043423
+ },
+ {
+  "file": "2015/DSC4066-Etchilhampton-04-08-15-OHSCL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 57.79979187272747,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC4093-Fox-Hill-nr-Liddington-Wilts-09-08-15-CL3.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "ring 1 not an ellipse"
+ },
+ {
+  "file": "2015/DSC4098-Fox-Hill-nr-Liddington-Wilts-09-08-15-LL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3977-Etchilhampton-04-08-15-OH2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 54.09756305889511,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC4106-Fox-Hill-nr-Liddington-Wilts-09-08-2015-CL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 70.25793535635647,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC4081-Fox-Hill-nr-Liddington-Wilts-09-08-15-L.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3283-Clearbury-Ring-Wilts-07-07-15-L4.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC4066-Etchilhampton-04-08-15-OHS.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 29.41860030749995,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3284-Clearbury-Ring-Wilts-07-07-15-OH.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC4106-Fox-Hill-nr-Liddington-Wilts-09-08-2015-OH.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 53.879500605055156,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3442-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-OHF2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "ring 1 not an ellipse"
+ },
+ {
+  "file": "2015/DSC3445-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-OH3-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "ring 1 not an ellipse"
+ },
+ {
+  "file": "2015/DSC3946-Etchilhampton-04-08-15-LOW2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3931-Etchilhampton-VLOW2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3417-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-LOW-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3982-Etchilhampton-04-08-15-OH3.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 66.99356561363159,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2014/welsh_way_nr_barnsley_gloucestershire_UK_22_07_14_82.jpg",
+  "formation": "https://temporarytemples.co.uk/project/welsh-way-barnsley-gloucestershire-22nd-july-2014",
+  "status": "affine-only",
+  "tilt_deg": 39.2472370160085,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3285-Clearbury-Ring-Wilts-07-07-15-OH2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2014/hod_-hill_-dorset_UK_6.jpg",
+  "formation": "https://temporarytemples.co.uk/project/hod-hill-dorset",
+  "status": "affine-only",
+  "tilt_deg": 45.17334877460329,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3985-Etchilhampton-04-08-15-OH.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 58.43772345388325,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC4084-Fox-Hill-nr-Liddington-Wilts-09-08-15-LOW.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3926-Etchilhampton-04-08-15-LOW.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3432-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-L2F.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC4129-Fox-Hill-nr-Liddington-Wilts-09-08-15-LLL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3406-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-VLOW-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3435-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-FL2-OH.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2014/welsh_way_nr_barnsley_gloucestershire_UK_22_07_14_83.jpg",
+  "formation": "https://temporarytemples.co.uk/project/welsh-way-barnsley-gloucestershire-22nd-july-2014",
+  "status": "affine-only",
+  "tilt_deg": 47.45154709342458,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC3447-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-HL2F.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3940-Etchilhampton-04-08-15-VCL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "affine-only",
+  "tilt_deg": 68.70395835739498,
+  "usable_for_ratios": false,
+  "ring2_over_ring1": null,
+  "ring2_roundness": null
+ },
+ {
+  "file": "2015/DSC4127-Fox-Hill-nr-Liddington-Wilts-09-08-15-L2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC4088-Fox-Hill-nr-Liddington-Wilts-09-08-15-CL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "ring 1 not an ellipse"
+ },
+ {
+  "file": "2015/DSC3400-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-VLOW4-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3936-Etchilhampton-04-08-15-CL.jpg",
+  "formation": "https://temporarytemples.co.uk/project/etchilhampton-wiltshire-4th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC4093-Fox-Hill-nr-Liddington-Wilts-09-08-15-CL2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/fox-hill-wiltshire-9th-august-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3409-Clearbury-Ring-nr-Nunton-Wilts-07-07-15-VLOW5-F2.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2015/DSC3276-Clearbury-Ring-Wilts-07-07-15-L3.jpg",
+  "formation": "https://temporarytemples.co.uk/project/clearbury-ring-wiltshire-7th-july-2015",
+  "status": "no outer ring found"
+ },
+ {
+  "file": "2014/hod_-hill_-roman_hill_fort_dorset_UK_9.jpg",
+  "formation": "https://temporarytemples.co.uk/project/hod-hill-dorset",
+  "status": "no outer ring found"
+ }
+]
