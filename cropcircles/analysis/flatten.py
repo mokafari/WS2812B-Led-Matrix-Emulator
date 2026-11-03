@@ -97,6 +97,14 @@ def _metric(C1, l, C2):
     if e2.min() <= 0: return None
     return T, float(1 / np.sqrt(e2.mean())), float(np.sqrt(e2.min() / e2.max()))
 
+def core_vp(C1, v):
+    """One ring + the vanishing point v of any ground direction (e.g. tramlines), normalised coords. The imaged circle centre o
+    satisfies v^T C1 o = 0 (v and the vanishing line are conjugate); take o = the point on that line nearest the ellipse centre
+    (second-order approximation, quantified by synth_flatten.py), then l = C1 o."""
+    C1 = C1 / np.linalg.norm(C1); Q = C1[:2, :2]; c0 = np.linalg.solve(Q, -C1[:2, 2]); m = C1 @ np.r_[v, 1.0]
+    o = c0 - m[:2] * (m[:2] @ c0 + m[2]) / (m[:2] @ m[:2]); l = C1 @ np.r_[o, 1.0]
+    return _metric(C1, l / np.linalg.norm(l[:2]), None)
+
 def flatten(img, out=1000):
     g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY); h, w = g.shape; sc = max(h, w)
     N = np.array([[1 / sc, 0, -w / 2 / sc], [0, 1 / sc, -h / 2 / sc], [0, 0, 1]]); Ni = np.linalg.inv(N)
