@@ -4,7 +4,7 @@ Tramlines -> vanishing point v; equal spacing along a transversal -> horizon poi
 (principal point = image centre, square pixels) -> focal length f -> metric ground homography. Returns None + reason on failure."""
 import cv2, numpy as np, itertools, random
 
-def tramlines(g, tol=np.deg2rad(1.5)):
+def tramlines(g, tol=np.deg2rad(1.5), min_lines=4):
     e = cv2.Canny(cv2.GaussianBlur(g, (0, 0), 2), 40, 120)
     L = cv2.HoughLinesP(e, 1, np.pi / 360, 80, minLineLength=.3 * min(g.shape), maxLineGap=25)
     if L is None or len(L) < 4: return None, None
@@ -17,7 +17,7 @@ def tramlines(g, tol=np.deg2rad(1.5)):
         a1 = np.arctan2(L[:, 3] - L[:, 1], L[:, 2] - L[:, 0]); a2 = np.arctan2(vp[1] - mid[:, 1], vp[0] - mid[:, 0])
         d = np.abs((a1 - a2 + np.pi / 2) % np.pi - np.pi / 2); inl = d < tol
         if inl.sum() > best[0]: best = (inl.sum(), vp, inl)
-    return (best[1], L[best[2]]) if best[0] >= 4 else (None, None)
+    return (best[1], L[best[2]]) if best[0] >= min_lines else (None, None)
 
 def rectify(img, out=1000):
     g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY); h, w = g.shape; c = np.array([w / 2, h / 2])

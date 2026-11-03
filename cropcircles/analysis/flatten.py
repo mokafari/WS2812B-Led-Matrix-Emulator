@@ -115,11 +115,16 @@ def flatten(img, out=1000):
         r = core(C1, Ni.T @ conic(e2) @ Ni)
         if r and r[1] and .15 < r[1] < .95 and (best is None or r[2] > best[2]): best = r      # concentric pair: full perspective removal
     method = "conic-pencil"
-    if best is None or best[2] < .9: best, method = core(C1, None), "affine-only"
+    if best is None or best[2] < .9:
+        from rectify import tramlines
+        v, _ = tramlines(g, min_lines=3); best, method = None, "affine-only"
+        if v is not None:
+            best = core_vp(C1, (N @ np.r_[v, 1])[:2] / (N @ np.r_[v, 1])[2]); method = "ring+tramline-VP"
+        if best is None or best[0] is None: best, method = core(C1, None), "affine-only"
     if best is None: return None, "ring 1 not an ellipse"
     T, ratio, rnd = best; S = np.array([[out / 2.3, 0, out / 2], [0, out / 2.3, out / 2], [0, 0, 1]]); Hf = S @ T @ N
     w1, h1 = es[0][1]; tilt = float(np.degrees(np.arccos(min(w1, h1) / max(w1, h1))))   # tilt from the outer ring's axis ratio
-    usable = method == "conic-pencil" or tilt < 10                                         # affine-only error < ~1% only below ~10 deg (synthetic gate)
+    usable = method == "conic-pencil" or (method == "ring+tramline-VP" and tilt < 20) or tilt < 10                                         # synthetic gate: affine-only <1% only below ~10 deg; ring+tramline-VP below ~20 deg
     return dict(img=cv2.warpPerspective(img, Hf, (out, out)), H=Hf, method=method, tilt_deg=tilt, usable_for_ratios=bool(usable), ring2_over_ring1=ratio, ring2_roundness=rnd), method
 
 if __name__ == "__main__":

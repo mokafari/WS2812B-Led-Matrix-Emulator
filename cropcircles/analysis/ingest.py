@@ -17,17 +17,21 @@ def feats(im):
     med = np.median(a.reshape(-1, 3), 0)
     return dict(field=field, bgwhite=bool(med.min() > .9), sat=float(sat.mean()), ncol=int(ncol), sky_top=sky, bg=float((np.abs(a - np.median(a.reshape(-1, 3), 0)).max(2) < .06).mean()))
 
+import re
+def ftag(f):  # photographer's type code in the filename (OH overhead, L/LS/CL/LOW/VLOW low or ground-level)
+    m = re.search(r"[-_](OH|VLOW|LOW|CL|LS|L)\d*(?:-\d+)?\.jpg$", f, re.I); return m.group(1).upper() if m else None
+
 def kind(f, tags):  # rules tuned on the tune split only (visual check of 28 images)
     if f["bg"] > .5 and f["bgwhite"]: return "graphic"      # white-background drawings / art
     if f["field"] < .3: return "other"                       # not a crop field (art, posters, people)
-    if f["sky_top"] > .5 or any(t.split()[0] in ("L","L2","L3","L4","L5","L6","L7","LOW","LOW2","LOW3","CL") for t in tags): return "ground"
+    if f["sky_top"] > .5 or any(t.split()[0] in ("L","L2","L3","L4","L5","L6","L7","LOW","LOW2","LOW3","CL","LS","VLOW") for t in tags): return "ground"
     return "aerial"
 
 rows = []
 for m in meta:
     try: im = Image.open(D / m["file"])
     except Exception: continue
-    f = feats(im); tags = m["alt_parts"][3:]
+    f = feats(im); tags = m["alt_parts"][3:] + ([ftag(m["file"])] if ftag(m["file"]) else [])
     rows.append(dict(file=m["file"], formation=m["project_url"], w=im.width, h=im.height, ph=str(imagehash.phash(im.convert("L"), 16)),
                      tag_overhead=any(t.startswith("OH") for t in tags), **f, kind=kind(f, tags)))
 # dedupe: global, hamming <= 10 of 256 bits; keep highest resolution
